@@ -1,15 +1,15 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.6.6
-Release:	2
+Version:	1.7.0
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	0741e06cd58088d4973dda98d3995a99
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	0495576e338d9755c24f48c1f12d3cff
 Patch0:		%{name}-locale-names.patch
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1.6.1
+BuildRequires:	atk-devel >= 1:1.7.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.4.1
@@ -18,7 +18,7 @@ BuildRequires:	libgnomecanvas-devel >= 2.6.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	atk >= 1.6.1
+Requires:	atk >= 1:1.7.0
 Requires:	gtk+2 >= 2:2.4.1
 Requires:	libgnomecanvas >= 2.6.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -38,7 +38,7 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1.6.1
+Requires:	atk-devel >= 1:1.7.0
 Requires:	gtk+2-devel >= 2:2.4.1
 Requires:	libgnomecanvas-devel >= 2.6.1
 
