@@ -1,19 +1,19 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.5.3
+Version:	1.5.4
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	102faad63f76182a947d4722ab23f1df
+# Source0-md5:	2e47e61d4e8d01a321f81ba6a556cfb5
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1.5.2
+BuildRequires:	atk-devel >= 1.5.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 1:2.3.1
 BuildRequires:	gtk-doc
-BuildRequires:	libgnomecanvas-devel >= 2.5.0
+BuildRequires:	libgnomecanvas-devel >= 2.5.4
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
@@ -35,7 +35,7 @@ Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	gtk+2-devel >= 2.3.1
-Requires:	libgnomecanvas-devel >= 2.5.0
+Requires:	libgnomecanvas-devel >= 2.5.4
 
 %description devel
 gail-devel contains the header files required to compile applications
