@@ -86,11 +86,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.??
+%{_libdir}/gtk-2.0/modules/lib*.la
+%attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.??
+%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/gail-1.0
 %{_pkgconfigdir}/*.pc
 %{_gtkdocdir}/*
