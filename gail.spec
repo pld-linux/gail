@@ -66,7 +66,7 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %setup -q
 %patch0 -p1
 
-mv po/{no,nb}.po
+rm po/no.po
 
 %build
 %{__libtoolize}
