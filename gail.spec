@@ -76,6 +76,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
+install -d $RPM_BUILD_ROOT%{_docdir}
+mv $RPM_BUILD_ROOT%{_datadir}/gtk-doc $RPM_BUILD_ROOT%{_docdir}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -93,7 +96,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.??
 %{_includedir}/gail-1.0
 %{_pkgconfigdir}/*.pc
-%{_datadir}/gtk-doc/*
+%{_docdir}/gtk-doc/*
 
 %files static
 %defattr(644,root,root,755)
