@@ -18,6 +18,9 @@ BuildRequires:	libgnomecanvas-devel >= 2.6.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
+Requires:	atk >= 1.6.0
+Requires:	gtk+2 >= 2:2.4.0
+Requires:	libgnomecanvas >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,6 +38,7 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	atk-devel >= 1.6.0
 Requires:	gtk+2-devel >= 2:2.4.0
 Requires:	libgnomecanvas-devel >= 2.6.0
 
