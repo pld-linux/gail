@@ -1,20 +1,20 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.4.1
+Version:	1.6.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	ea970bd1f6ce5da13e7d872ad9d27869
-Patch0:		%{name}-am.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	55e6b01aa2f02d0729ec94f1460611be
+Patch0:		%{name}-locale-names.patch
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1.4.0
+BuildRequires:	atk-devel >= 1.6.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.2.3
-BuildRequires:	gtk-doc
-BuildRequires:	libgnomecanvas-devel >= 2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	libgnomecanvas-devel >= 2.6.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
@@ -34,9 +34,9 @@ aby u³atwiæ niepe³nosprawnym korzystanie z tych GUI.
 Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	gtk+2-devel >= 2.2.3
-Requires:	libgnomecanvas-devel >= 2.4.0
+Requires:	%{name} = %{version}-%{release}
+Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	libgnomecanvas-devel >= 2.6.0
 
 %description devel
 gail-devel contains the header files required to compile applications
@@ -50,7 +50,7 @@ aplikacji u¿ywaj±cych bibliotek GAIL.
 Summary:	Static GAIL libraries
 Summary(pl):	Statyczne biblioteki GAIL
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 gail-static contains the static GAIL libraries.
@@ -61,6 +61,8 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %prep
 %setup -q
 %patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
 %{__libtoolize}
@@ -83,13 +85,15 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
