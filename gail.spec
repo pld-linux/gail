@@ -10,9 +10,7 @@ Patch0:		%{name}-am.patch
 URL:		http://developer.gnome.org/projects/gap
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.0.6
-BuildRequires:	libgnomecanvas-devel >= 2.0.2
-BuildRequires:	atk-devel >= 1.0.3
+BuildRequires:	libgnomecanvas-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,6 +32,7 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	libgnomecanvas-devel
 
 %description devel
 gail-devel contains the header files required to compile applications 
@@ -88,11 +87,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.??
+%attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
+%{_libdir}/gtk-2.0/modules/lib*.la
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.??
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/gail-1.0
 %{_pkgconfigdir}/*.pc
 %{_gtkdocdir}/*
