@@ -66,16 +66,15 @@ rm -f missing
 %{__automake}
 %configure \
 	--enable-gtk-doc \
-	--enable-static
+	--enable-static \
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	HTML_DIR=%{_gtkdocdir} \
-	pkgconfigdir=%{_pkgconfigdir}
+	DESTDIR=$RPM_BUILD_ROOT 
 
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
