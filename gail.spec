@@ -17,6 +17,7 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
+%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 GAIL implements the abstract interfaces found in ATK for GTK+ and
@@ -74,10 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
-
-install -d $RPM_BUILD_ROOT%{_docdir}
-mv $RPM_BUILD_ROOT%{_datadir}/gtk-doc $RPM_BUILD_ROOT%{_docdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -96,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.??
 %{_includedir}/gail-1.0
 %{_pkgconfigdir}/*.pc
-%{_docdir}/gtk-doc/*
+%{_gtkdocdir}/*
 
 %files static
 %defattr(644,root,root,755)
