@@ -5,7 +5,7 @@ Version:	0.17
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/0.17/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am.patch
 URL:		http://developer.gnome.org/projects/gap
 BuildRequires:	autoconf
@@ -17,6 +17,7 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
+%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 GAIL implements the abstract interfaces found in ATK for GTK+ and
@@ -61,11 +62,11 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-gtk-doc=no \
+	--enable-gtk-doc \
 	--enable-static
 %{__make}
 
@@ -74,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
 %clean
@@ -93,6 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.??
 %{_includedir}/gail-1.0
 %{_pkgconfigdir}/*.pc
+%{_gtkdocdir}/*
 
 %files static
 %defattr(644,root,root,755)
