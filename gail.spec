@@ -11,6 +11,7 @@ URL:		http://developer.gnome.org/projects/gap
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	gtk-doc
 BuildRequires:	libgnomecanvas-devel >= 2.0.2
 BuildRequires:	atk-devel >= 1.2.2
 BuildRequires:	libtool
