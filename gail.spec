@@ -62,7 +62,7 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
