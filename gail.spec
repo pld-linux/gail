@@ -1,20 +1,20 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.3.4
-Release:	2
+Version:	1.3.5
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	fc0a467a3f39507a3aa623184c6e2e68
+# Source0-md5:	e984737299e6bb310909e3002d01a6a0
 Patch0:		%{name}-am.patch
 #URL:		http://developer.gnome.org/projects/gap/
+BuildRequires:	atk-devel >= 1.3.5
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	gtk-doc
 BuildRequires:	libgnomecanvas-devel >= 2.3.0
-BuildRequires:	atk-devel >= 1.3.3
 BuildRequires:	libtool
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
