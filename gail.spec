@@ -12,7 +12,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2.1.0
 BuildRequires:	libgnomecanvas-devel >= 2.0.2
-BuildRequires:	atk-devel >= 1.1.0
+BuildRequires:	atk-devel >= 1.1.3
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
