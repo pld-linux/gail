@@ -36,7 +36,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
-gail-devel contains the header files required to compile applications 
+gail-devel contains the header files required to compile applications
 against the GAIL libraries.
 
 %description devel -l pl
@@ -75,7 +75,7 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT
 
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
