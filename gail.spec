@@ -6,7 +6,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	765071d58561c3773df69264aa8f8987
+# Source0-md5:	fc0a467a3f39507a3aa623184c6e2e68
 Patch0:		%{name}-am.patch
 URL:		http://developer.gnome.org/projects/gap
 BuildRequires:	autoconf
