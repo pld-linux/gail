@@ -1,12 +1,12 @@
-diff -urN aa/gail-1.5.6/configure.in gail-1.5.6/configure.in
---- aa/gail-1.5.6/configure.in	2004-02-25 13:41:03.000000000 +0100
-+++ gail-1.5.6/configure.in	2004-02-25 16:52:23.810272904 +0100
+diff -urN gail-1.6.6.orig/configure.in gail-1.6.6/configure.in
+--- gail-1.6.6.orig/configure.in	2004-06-08 17:01:04.363204584 +0200
++++ gail-1.6.6/configure.in	2004-06-08 17:01:18.313083880 +0200
 @@ -90,7 +90,7 @@
  	$GTK_PACKAGES >= $GTK_REQUIRED_VERSION \
  	$LIBGNOMECANVAS_PACKAGES >= $LIBGNOMECANVAS_REQUIRED_VERSION)
  
--ALL_LINGUAS="ar az be bn ca cs cy da de el en_CA en_GB es et fa fi fr ga hi hr id is it ja ko lt mi mn ms nl nn no pa pl pt pt_BR ro ru sq sr sr@Latn sv ta tr uk zh_CN zh_TW"
-+ALL_LINGUAS="ar az be bn ca cs cy da de el en_CA en_GB es et fa fi fr ga hi hr id is it ja ko lt mi mn ms nb nl nn pa pl pt pt_BR ro ru sq sr sr@Latn sv ta tr uk zh_CN zh_TW"
+-ALL_LINGUAS="ar az be bg bn ca cs cy da de el en_CA en_GB es et fa fi fr ga hi hr id is it ja ko lt mi mn ms nl nn no pa pl pt pt_BR ro ru sq sr sr@Latn sv ta tr uk zh_CN zh_TW"
++ALL_LINGUAS="ar az be bg bn ca cs cy da de el en_CA en_GB es et fa fi fr ga hi hr id is it ja ko lt mi mn ms nb nl nn pa pl pt pt_BR ro ru sq sr sr@Latn sv ta tr uk zh_CN zh_TW"
  AM_GLIB_GNU_GETTEXT
  
  AM_GLIB_DEFINE_LOCALEDIR(GAIL_LOCALEDIR)
