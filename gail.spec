@@ -2,13 +2,16 @@ Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
 Version:	0.13
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
 URL:		http://developer.gnome.org/projects/gap
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+2-devel
 BuildRequires:	libgnomecanvas-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
@@ -53,6 +56,11 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %setup -q
 
 %build
+rm -f missing
+%{__libtoolize}
+aclocal
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-gtk-doc=no \
 	--enable-static
@@ -60,6 +68,7 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
