@@ -16,6 +16,7 @@ BuildRequires:	gtk+2-devel >= 2.2.3
 BuildRequires:	gtk-doc
 BuildRequires:	libgnomecanvas-devel >= 2.4.0
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.1-10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -34,6 +35,8 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	gtk+2-devel >= 2.2.3
+Requires:	libgnomecanvas-devel >= 2.4.0
 
 %description devel
 gail-devel contains the header files required to compile applications
@@ -60,7 +63,6 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %patch0 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -95,8 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/gail-1.0
 %{_pkgconfigdir}/*.pc
 %{_gtkdocdir}/*
