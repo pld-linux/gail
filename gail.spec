@@ -2,7 +2,7 @@ Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
 Version:	1.3.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.3/%{name}-%{version}.tar.bz2
@@ -77,8 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
-# no static modules - shut up check-files
-rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.a
+# no static modules and *.la for gtk modules - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -91,7 +91,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
-%{_libdir}/gtk-2.0/modules/lib*.la
 
 %files devel
 %defattr(644,root,root,755)
