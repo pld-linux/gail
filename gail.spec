@@ -1,18 +1,19 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.5.5
+Version:	1.5.6
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	1b34793c061137e7b13da623662fcf14
+# Source0-md5:	ee099c40b2c0763b3b14ee661ca4891c
+Patch0:		%{name}-locale-names.patch
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1.5.4
+BuildRequires:	atk-devel >= 1.5.5
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 1:2.3.1
-BuildRequires:	gtk-doc
+BuildRequires:	gtk+2-devel >= 1:2.3.4
+BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libgnomecanvas-devel >= 2.5.4
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -33,8 +34,8 @@ aby u³atwiæ niepe³nosprawnym korzystanie z tych GUI.
 Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	gtk+2-devel >= 2.3.1
+Requires:	%{name} = %{version}-%{release}
+Requires:	gtk+2-devel >= 2.3.4
 Requires:	libgnomecanvas-devel >= 2.5.4
 
 %description devel
@@ -49,7 +50,7 @@ aplikacji u¿ywaj±cych bibliotek GAIL.
 Summary:	Static GAIL libraries
 Summary(pl):	Statyczne biblioteki GAIL
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 gail-static contains the static GAIL libraries.
@@ -59,6 +60,9 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
 %{__libtoolize}
