@@ -77,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT
 	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
+# no static modules - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.a
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -87,8 +90,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_libdir}/gtk-2.0/modules/lib*.la
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
+%{_libdir}/gtk-2.0/modules/lib*.la
 
 %files devel
 %defattr(644,root,root,755)
@@ -101,4 +104,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/*.a
-%{_libdir}/gtk-2.0/modules/*.a
