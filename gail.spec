@@ -17,6 +17,7 @@ BuildRequires:	libgnomecanvas-devel >= 2.6.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
+Requires(post,postun):	/sbin/ldconfig
 Requires:	atk >= 1:1.9.1
 Requires:	gtk+2 >= 2:2.6.4
 Requires:	libgnomecanvas >= 2.10.0
