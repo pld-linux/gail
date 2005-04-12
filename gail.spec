@@ -1,25 +1,25 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.8.2
+Version:	1.8.3
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/1.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	3b8be198ccb8a0d92cfb0c3cdd519c1f
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	9e5db197dea8f92eec1f07984f12542a
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1:1.8.0
+BuildRequires:	atk-devel >= 1:1.9.1
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2:2.4.1
+BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libgnomecanvas-devel >= 2.6.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
-BuildRequires:	rpm-build >= 4.1-10
-Requires:	atk >= 1:1.8.0
-Requires:	gtk+2 >= 2:2.4.1
-Requires:	libgnomecanvas >= 2.6.1
+BuildRequires:	rpmbuild(macros) >= 1.197
+Requires:	atk >= 1:1.9.1
+Requires:	gtk+2 >= 2:2.6.4
+Requires:	libgnomecanvas >= 2.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,9 +37,9 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.8.0
-Requires:	gtk+2-devel >= 2:2.4.1
-Requires:	libgnomecanvas-devel >= 2.6.1
+Requires:	atk-devel >= 1:1.9.1
+Requires:	gtk+2-devel >= 2:2.6.4
+Requires:	libgnomecanvas-devel >= 2.10.0
 
 %description devel
 gail-devel contains the header files required to compile applications
@@ -73,7 +73,6 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 	--enable-gtk-doc \
 	--enable-static \
 	--with-html-dir=%{_gtkdocdir}
-
 %{__make}
 
 %install
@@ -92,8 +91,11 @@ rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post
+%ldconfig_post
+
+%postun
+%ldconfig_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
