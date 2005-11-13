@@ -1,3 +1,6 @@
+
+%bcond_without apidocs		# disable gtk-doc
+
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
@@ -13,7 +16,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	gtk-doc >= 1.0
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
+BuildRequires:	gtk-doc-automake
 BuildRequires:	libgnomecanvas-devel >= 2.6.1
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
@@ -39,6 +43,7 @@ Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atk-devel >= 1:1.9.1
+%{?with_apidocs:Requires:	gtk-doc-common}
 Requires:	gtk+2-devel >= 2:2.6.4
 Requires:	libgnomecanvas-devel >= 2.10.0
 
@@ -71,7 +76,7 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
+	%{?with_apidocs:--enable-gtk-doc} \
 	--enable-static \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
@@ -103,7 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_gtkdocdir}/*
+%{?with_apidocs:%{_gtkdocdir}/*}
 %{_includedir}/gail-1.0
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
