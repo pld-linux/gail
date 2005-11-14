@@ -1,15 +1,16 @@
-
-%bcond_without apidocs		# disable gtk-doc
-
+#
+# Conditional build:
+%bcond_without	apidocs		# disable gtk-doc
+#
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.8.5
-Release:	2
+Version:	1.8.6
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	7587a0a9ee643bb59ef6b2dea06c5a28
+# Source0-md5:	ee0a0af2bb4aa5f8a4fd586d5075bb73
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	atk-devel >= 1:1.9.1
 BuildRequires:	autoconf
