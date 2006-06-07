@@ -6,7 +6,7 @@ Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
 Version:	1.8.11
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.8/%{name}-%{version}.tar.bz2
@@ -16,15 +16,15 @@ BuildRequires:	atk-devel >= 1:1.11.4
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.6.4
+BuildRequires:	gtk+2-devel >= 2:2.9.2
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.0}
 BuildRequires:	gtk-doc-automake
-BuildRequires:	libgnomecanvas-devel >= 2.6.1
+BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	atk >= 1:1.11.4
-Requires:	gtk+2 >= 2:2.6.4
+Requires:	gtk+2 >= 2:2.9.2
 Requires:	libgnomecanvas >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -45,7 +45,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atk-devel >= 1:1.11.4
 %{?with_apidocs:Requires:	gtk-doc-common}
-Requires:	gtk+2-devel >= 2:2.6.4
+Requires:	gtk+2-devel >= 2:2.9.2
 Requires:	libgnomecanvas-devel >= 2.14.0
 
 %description devel
@@ -72,6 +72,7 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %setup -q
 
 %build
+%{?with_apidocs:%{__gtkdocize}}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -91,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,no,tk}
 
 %find_lang %{name}
 
