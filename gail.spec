@@ -5,12 +5,12 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.8.11
-Release:	5
+Version:	1.9.0
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	ff79df7dd0cf7a5109c089b9b5fbe17f
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	ab0ab7ff000ddf3bb610ef0d2d20ea04
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	atk-devel >= 1:1.12.1
 BuildRequires:	autoconf
@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,no,tk}
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,tk}
 
 %find_lang %{name}
 
