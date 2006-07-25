@@ -5,18 +5,18 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.9.0
+Version:	1.9.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	ab0ab7ff000ddf3bb610ef0d2d20ea04
+# Source0-md5:	afdfbf3e27cad67abaeb8ce0d174b09e
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	atk-devel >= 1:1.12.1
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	gtk+2-devel >= 2:2.10.1
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.6}
 BuildRequires:	gtk-doc-automake
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
@@ -41,9 +41,9 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl):	Pliki nag³ówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.12.0
+Requires:	atk-devel >= 1:1.12.1
 %{?with_apidocs:Requires:	gtk-doc-common}
-Requires:	gtk+2-devel >= 2:2.10.0
+Requires:	gtk+2-devel >= 2:2.10.1
 Requires:	libgnomecanvas-devel >= 2.14.0
 
 %description devel
@@ -75,7 +75,6 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	%{?with_apidocs:--enable-gtk-doc} \
 	--enable-static \
