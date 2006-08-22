@@ -5,19 +5,19 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl):	Implementacja u³atwiania pracy niepe³nosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.9.1
+Version:	1.9.2
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	afdfbf3e27cad67abaeb8ce0d174b09e
+# Source0-md5:	4b21d87414aac4604e0db408133983e8
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1:1.12.1
+BuildRequires:	atk-devel >= 1:1.12.2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.1
-%{?with_apidocs:BuildRequires:	gtk-doc >= 1.6}
+BuildRequires:	gtk+2-devel >= 2:2.10.2
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.7}
 BuildRequires:	gtk-doc-automake
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libtool
@@ -43,7 +43,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atk-devel >= 1:1.12.1
 %{?with_apidocs:Requires:	gtk-doc-common}
-Requires:	gtk+2-devel >= 2:2.10.1
+Requires:	gtk+2-devel >= 2:2.10.2
 Requires:	libgnomecanvas-devel >= 2.14.0
 
 %description devel
@@ -65,6 +65,18 @@ gail-static contains the static GAIL libraries.
 
 %description static -l pl
 Pakiet gail-static zawiera statyczne biblioteki GAIL.
+
+%package apidocs
+Summary:	API documentation 
+Summary(pl):	Dokumentacja API 
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+ API documentation.
+
+%description apidocs -l pl
+Dokumentacja API .
 
 %prep
 %setup -q
@@ -108,7 +120,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{?with_apidocs:%{_gtkdocdir}/*}
 %{_includedir}/gail-1.0
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
@@ -117,3 +128,9 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/*.a
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/*
+%endif
