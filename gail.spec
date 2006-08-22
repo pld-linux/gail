@@ -76,7 +76,7 @@ Requires:	gtk-doc-common
  API documentation.
 
 %description apidocs -l pl
-Dokumentacja API .
+Dokumentacja API.
 
 %prep
 %setup -q
