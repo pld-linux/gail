@@ -102,8 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{as,tk}
-
 %find_lang %{name}
 
 %clean
