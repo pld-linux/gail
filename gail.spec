@@ -3,7 +3,7 @@
 %bcond_without	apidocs		# disable gtk-doc
 #
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
-Summary(pl):	Implementacja u≥atwiania pracy niepe≥nosprawnym dla GTK+ i GNOME
+Summary(pl.UTF-8):   Implementacja u≈Çatwiania pracy niepe≈Çnosprawnym dla GTK+ i GNOME
 Name:		gail
 Version:	1.9.4
 Release:	1
@@ -31,14 +31,14 @@ GAIL implements the abstract interfaces found in ATK for GTK+ and
 GNOME libraries, enabling accessibility technologies such as at-spi to
 access those GUIs.
 
-%description -l pl
-GAIL jest implementacj± abstrakcyjnych interfejsÛw z ATK dla bibliotek
-GTK+ i GNOME, umoøliwiaj±c± korzystanie z technik takich jak at-spi,
-aby u≥atwiÊ niepe≥nosprawnym korzystanie z tych GUI.
+%description -l pl.UTF-8
+GAIL jest implementacjƒÖ abstrakcyjnych interfejs√≥w z ATK dla bibliotek
+GTK+ i GNOME, umo≈ºliwiajƒÖcƒÖ korzystanie z technik takich jak at-spi,
+aby u≈Çatwiƒá niepe≈Çnosprawnym korzystanie z tych GUI.
 
 %package devel
 Summary:	Header files to compile applications that use GAIL
-Summary(pl):	Pliki nag≥Ûwkowe GAIL
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atk-devel >= 1:1.12.3
@@ -50,32 +50,32 @@ Requires:	libgnomecanvas-devel >= 2.14.0
 gail-devel contains the header files required to compile applications
 against the GAIL libraries.
 
-%description devel -l pl
-Pakiet gail-devel zawiera pliki nag≥Ûwkowe potrzebne do kompilowania
-aplikacji uøywaj±cych bibliotek GAIL.
+%description devel -l pl.UTF-8
+Pakiet gail-devel zawiera pliki nag≈Ç√≥wkowe potrzebne do kompilowania
+aplikacji u≈ºywajƒÖcych bibliotek GAIL.
 
 %package static
 Summary:	Static GAIL libraries
-Summary(pl):	Statyczne biblioteki GAIL
+Summary(pl.UTF-8):   Statyczne biblioteki GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 gail-static contains the static GAIL libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Pakiet gail-static zawiera statyczne biblioteki GAIL.
 
 %package apidocs
 Summary:	API documentation 
-Summary(pl):	Dokumentacja API 
+Summary(pl.UTF-8):   Dokumentacja API 
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
  API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API.
 
 %prep
