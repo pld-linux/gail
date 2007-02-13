@@ -3,7 +3,7 @@
 %bcond_without	apidocs		# disable gtk-doc
 #
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
-Summary(pl.UTF-8):   Implementacja ułatwiania pracy niepełnosprawnym dla GTK+ i GNOME
+Summary(pl.UTF-8):	Implementacja ułatwiania pracy niepełnosprawnym dla GTK+ i GNOME
 Name:		gail
 Version:	1.9.4
 Release:	1
@@ -38,7 +38,7 @@ aby ułatwić niepełnosprawnym korzystanie z tych GUI.
 
 %package devel
 Summary:	Header files to compile applications that use GAIL
-Summary(pl.UTF-8):   Pliki nagłówkowe GAIL
+Summary(pl.UTF-8):	Pliki nagłówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atk-devel >= 1:1.12.3
@@ -56,7 +56,7 @@ aplikacji używających bibliotek GAIL.
 
 %package static
 Summary:	Static GAIL libraries
-Summary(pl.UTF-8):   Statyczne biblioteki GAIL
+Summary(pl.UTF-8):	Statyczne biblioteki GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -68,7 +68,7 @@ Pakiet gail-static zawiera statyczne biblioteki GAIL.
 
 %package apidocs
 Summary:	API documentation 
-Summary(pl.UTF-8):   Dokumentacja API 
+Summary(pl.UTF-8):	Dokumentacja API 
 Group:		Documentation
 Requires:	gtk-doc-common
 
