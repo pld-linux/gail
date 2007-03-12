@@ -5,19 +5,19 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl.UTF-8):	Implementacja ułatwiania pracy niepełnosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.9.4
+Version:	1.18.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	eff7a5d2fffe914295ca937b128c5f40
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.18/%{name}-%{version}.tar.bz2
+# Source0-md5:	d58ad8cc79d3cb6778bc015ef69fb499
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1:1.12.3
+BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.5
-%{?with_apidocs:BuildRequires:	gtk-doc >= 1.7}
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk-doc-automake
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libtool
@@ -41,9 +41,8 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl.UTF-8):	Pliki nagłówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.12.3
-%{?with_apidocs:Requires:	gtk-doc-common}
-Requires:	gtk+2-devel >= 2:2.10.5
+Requires:	atk-devel >= 1:1.18.0
+Requires:	gtk+2-devel >= 2:2.10.9
 Requires:	libgnomecanvas-devel >= 2.14.0
 
 %description devel
@@ -67,13 +66,13 @@ gail-static contains the static GAIL libraries.
 Pakiet gail-static zawiera statyczne biblioteki GAIL.
 
 %package apidocs
-Summary:	API documentation 
-Summary(pl.UTF-8):	Dokumentacja API 
+Summary:	API documentation
+Summary(pl.UTF-8):	Dokumentacja API
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
- API documentation.
+API documentation.
 
 %description apidocs -l pl.UTF-8
 Dokumentacja API.
@@ -101,6 +100,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # no static modules and *.la for gtk modules - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/lib*.{la,a}
+
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/be\@latin
 
 %find_lang %{name}
 
