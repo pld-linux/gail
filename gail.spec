@@ -16,6 +16,7 @@ BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	glitz-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.9
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk-doc-automake
