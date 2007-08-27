@@ -5,18 +5,18 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl.UTF-8):	Implementacja ułatwiania pracy niepełnosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.18.0
+Version:	1.19.6
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gail/1.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	d58ad8cc79d3cb6778bc015ef69fb499
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.19/%{name}-%{version}.tar.bz2
+# Source0-md5:	5ba765ceb192c0903742043c48677483
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1:1.18.0
+BuildRequires:	atk-devel >= 1:1.19.6
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk+2-devel >= 2:2.10.14
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk-doc-automake
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
@@ -41,8 +41,8 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl.UTF-8):	Pliki nagłówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.18.0
-Requires:	gtk+2-devel >= 2:2.10.9
+Requires:	atk-devel >= 1:1.19.6
+Requires:	gtk+2-devel >= 2:2.10.14
 Requires:	libgnomecanvas-devel >= 2.14.0
 
 %description devel
@@ -113,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
