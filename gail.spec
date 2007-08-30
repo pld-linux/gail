@@ -19,11 +19,9 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.14
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk-doc-automake
-BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	libgnomecanvas >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,7 +41,6 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	atk-devel >= 1:1.19.6
 Requires:	gtk+2-devel >= 2:2.10.14
-Requires:	libgnomecanvas-devel >= 2.14.0
 
 %description devel
 gail-devel contains the header files required to compile applications
