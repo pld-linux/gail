@@ -16,14 +16,12 @@ BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk-doc-automake
-BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	libgnomecanvas >= 2.14.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,9 +39,8 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl.UTF-8):	Pliki nagłówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.18.0
-Requires:	gtk+2-devel >= 2:2.10.9
-Requires:	libgnomecanvas-devel >= 2.14.0
+Requires:	atk-devel >= 1:1.20.0
+Requires:	gtk+2-devel >= 2:2.12.0
 
 %description devel
 gail-devel contains the header files required to compile applications
@@ -113,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
