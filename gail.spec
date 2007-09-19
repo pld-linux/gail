@@ -14,11 +14,11 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.20/%{name}-%{version}.tar
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	atk-devel >= 1:1.20.0
 BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
-BuildRequires:	gtk-doc-automake
+BuildRequires:	gtk-doc-automake >= 1.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
@@ -109,22 +109,23 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/gtk-2.0/modules/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/gtk-2.0/modules/libferret.so
+%attr(755,root,root) %{_libdir}/gtk-2.0/modules/libgail.so
+%attr(755,root,root) %{_libdir}/libgailutil.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libgailutil.so
+%{_libdir}/libgailutil.la
 %{_includedir}/gail-1.0
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/gail.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/libgailutil.a
 
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/*
+%{_gtkdocdir}/gail-libgail-util
 %endif
