@@ -9,7 +9,7 @@ Version:	1.21.5
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.20/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.21/%{name}-%{version}.tar.bz2
 # Source0-md5:	b89153b2f76094b5e7bc23f92b8f73f4
 URL:		http://developer.gnome.org/projects/gap/
 BuildRequires:	atk-devel >= 1:1.21.5
