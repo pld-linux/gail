@@ -5,14 +5,14 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl.UTF-8):	Implementacja ułatwiania pracy niepełnosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.20.2
+Version:	1.21.5
 Release:	1
-License:	LGPL
-Group:		Libraries
+License:	LGPL v2+
+Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	e805806f897cf6040e1f3e9c0cd2151b
+# Source0-md5:	b89153b2f76094b5e7bc23f92b8f73f4
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1:1.20.0
+BuildRequires:	atk-devel >= 1:1.21.5
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-devel
@@ -28,12 +28,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GAIL implements the abstract interfaces found in ATK for GTK+ and
-GNOME libraries, enabling accessibility technologies such as at-spi to
+GNOME libraries, enabling accessibility technologies such as AT-SPI to
 access those GUIs.
 
 %description -l pl.UTF-8
 GAIL jest implementacją abstrakcyjnych interfejsów z ATK dla bibliotek
-GTK+ i GNOME, umożliwiającą korzystanie z technik takich jak at-spi,
+GTK+ i GNOME, umożliwiającą korzystanie z technik takich jak AT-SPI,
 aby ułatwić niepełnosprawnym korzystanie z tych GUI.
 
 %package devel
@@ -41,7 +41,7 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl.UTF-8):	Pliki nagłówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.20.0
+Requires:	atk-devel >= 1:1.21.5
 Requires:	gtk+2-devel >= 2:2.12.0
 
 %description devel
@@ -116,6 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/libferret.so
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/libgail.so
 %attr(755,root,root) %{_libdir}/libgailutil.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgailutil.so.18
 
 %files devel
 %defattr(644,root,root,755)
