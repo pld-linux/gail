@@ -5,18 +5,18 @@
 Summary:	Accessibility implementation for GTK+ and GNOME libraries
 Summary(pl.UTF-8):	Implementacja ułatwiania pracy niepełnosprawnym dla GTK+ i GNOME
 Name:		gail
-Version:	1.20.2
+Version:	1.22.0
 Release:	1
-License:	LGPL
-Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	e805806f897cf6040e1f3e9c0cd2151b
+License:	LGPL v2+
+Group:		X11/Libraries
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/gail/1.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	ff500cc53d088bb7f13d35a4fcf81e80
 URL:		http://developer.gnome.org/projects/gap/
-BuildRequires:	atk-devel >= 1:1.20.0
+BuildRequires:	atk-devel >= 1:1.22.0
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1.6
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk+2-devel >= 2:2.12.8
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk-doc-automake >= 1.0
 BuildRequires:	libtool
@@ -28,12 +28,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GAIL implements the abstract interfaces found in ATK for GTK+ and
-GNOME libraries, enabling accessibility technologies such as at-spi to
+GNOME libraries, enabling accessibility technologies such as AT-SPI to
 access those GUIs.
 
 %description -l pl.UTF-8
 GAIL jest implementacją abstrakcyjnych interfejsów z ATK dla bibliotek
-GTK+ i GNOME, umożliwiającą korzystanie z technik takich jak at-spi,
+GTK+ i GNOME, umożliwiającą korzystanie z technik takich jak AT-SPI,
 aby ułatwić niepełnosprawnym korzystanie z tych GUI.
 
 %package devel
@@ -41,8 +41,8 @@ Summary:	Header files to compile applications that use GAIL
 Summary(pl.UTF-8):	Pliki nagłówkowe GAIL
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	atk-devel >= 1:1.20.0
-Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	atk-devel >= 1:1.22.0
+Requires:	gtk+2-devel >= 2:2.12.8
 
 %description devel
 gail-devel contains the header files required to compile applications
@@ -116,6 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/libferret.so
 %attr(755,root,root) %{_libdir}/gtk-2.0/modules/libgail.so
 %attr(755,root,root) %{_libdir}/libgailutil.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgailutil.so.18
 
 %files devel
 %defattr(644,root,root,755)
